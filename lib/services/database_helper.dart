@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import '../models/menu_model.dart';
 import '../models/order_model.dart';
@@ -15,7 +14,7 @@ class DatabaseHelper {
 
   // Web/In-memory fallback data
   static List<MenuModel>? _webMenus;
-  static List<OrderModel> _webOrders = [];
+  static final List<OrderModel> _webOrders = [];
 
   Future<Database> get database async {
     if (kIsWeb) {
@@ -135,9 +134,7 @@ class DatabaseHelper {
   }
 
   void _initWebData() {
-    if (_webMenus == null) {
-      _webMenus = _getDefaultMenus();
-    }
+    _webMenus ??= _getDefaultMenus();
   }
 
   // --- MENU CRUD ---

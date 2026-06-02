@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controllers/cart_controller.dart';
@@ -18,7 +17,6 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   final CartController _cartController = CartController();
   int _currentIndex = 0;
-  String? _trackerPrefilledId;
 
   // Waiter Modal Options
   void _openWaiterDialog() {
